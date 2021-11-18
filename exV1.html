@@ -176,23 +176,29 @@
             const target = e.target
             const liEle = target.closest("li")
             const idx = liEle.getAttribute("data-idx")
-            orders.push({...menus, qty:1})
+
 
         },false)
 
+        orders.push({...menus, qty:1})
+
+        console.log(orders)
         document.querySelector(".orderList").addEventListener("click", (e)=>{
             e.preventDefault()
             e.stopPropagation()
 
             const target = e.target
 
+            console.log()
 
             let str = ''
 
             for (let i = 0; i < orders.length; i++) {
                 const order = orders[i]
-                str += `<div>${orders.name}======${orders.price}========${orders.qty}</div>`
+                str += `<div>${orders.name}======${orders.price}</div>`
             }
+
+            console.log(str)
             orderList.innerHTML = str
         })
 
